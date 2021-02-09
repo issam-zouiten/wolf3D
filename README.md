@@ -11,7 +11,7 @@ sudo apt-get install libsdl2-dev libsdl2-mixer-dev libsdl2-ttf-dev
 Fedora:
 
 sudo dnf install SDL2-devel SDL2_mixer-devel SDL2_ttf-devel
-<h2>* MacOS:</h2>
+<h3>* MacOS:</h3>
 
 All ready for use. Just type make.
 
