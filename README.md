@@ -34,8 +34,11 @@ make re: It's rules - make fclean & make in one.
 ./wolf3d night.wol
 
 [up | down]: Moving forward | backward.
+
 [left | right]: Rotate left | right.
+
 [ESC]: Close Wolf3D.
+
 
 #ScreenShoot
 
