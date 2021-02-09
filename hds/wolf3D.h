@@ -3,9 +3,14 @@
 
 // System includes
 
-#include "../SDL2/SDL.h"
+
+#include "../SDL/SDL2.framework/Headers/SDL.h"
+#include "../SDL/SDL2_image.framework/Headers/SDL_image.h"
 #include <stdio.h>
 #include <math.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 // Initial values
 #define WIN_X           1280
@@ -20,11 +25,16 @@
 #define BLUE            0x0000FF
 #define BLACK           0x000000
 
+#define texWidth 64
+#define texHeight 64
+
 // Structures
 typedef struct      s_sdl
 {
   SDL_Window      *window;
   SDL_Renderer    *renderer;
+  SDL_Texture     *texture;
+  SDL_Surface     *image;
 } t_sdl;
 
 typedef struct      s_raycaster
@@ -50,11 +60,19 @@ typedef struct      s_raycaster
   int             draw_end;
   double          perp_wall_dist;
   int             **map;
-} t_raycaster;
+  double          wallx;
+  int             texX;
+  int             texY;
+  int             *buffer;
+  int             **tex;
+  double          texPos;
+  double          step;
+  int             texNum;
+  char            **wolf;
+  } t_raycaster;
 
 // function
-SDL_Color convert_color(int hexa_value);
-SDL_Color     select_wall_color(int map_x, int map_y, t_raycaster *rc);
-SDL_Color apply_night_effect(SDL_Color color, double distance);
 int		**read_map(char *path);
+char *ft_strdup(const char *s1);
+
 #endif

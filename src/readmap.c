@@ -1,7 +1,4 @@
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include "../hds/wolf3D.h"
 
 int		**free_map(int fd, int **map, int opt)
 {

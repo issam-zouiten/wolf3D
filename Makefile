@@ -1,31 +1,36 @@
-SRC		=	./src/main.c	\
-			./src/color.c	\
-			./src/readmap.c
+NAME = wolf
 
-NAME	=	wolf3D
+CC = gcc
 
-CC		=	@gcc 
+CFLAGS = -Wall -Werror -Wextra
 
-RM		=	@rm -f
+SDLF = -I SDL/SDL2.framework/Headers   
 
-OBJ		=	$(SRC:.c=.o)
+INC = hds/wolft3D.h
 
-CFLAGS	=	-Wall -Wextra -Werror
-CFLAGS	+=	-I ./hds/
+SRC = src/main.c src/readmap.c src/ft_strdup.c
 
-LDLIBS	=	`sdl2-config --cflags --libs`
+FRAM =  -framework SDL2 -F ./SDL/ -framework SDL2_mixer -F ./SDL  -framework SDL2_image -F ./SDL -rpath @loader_path/SDL -lz
 
-all		:	$(NAME)
+OBJ = $(SRC:.c=.o) 
 
-$(NAME)	:	$(OBJ)
-			$(CC) -o $(NAME) $(OBJ) $(LDLIBS)
+F_OBJ = ./OBJ
 
-clean	:
-			$(RM) $(OBJ)
-
-fclean	:	clean
-			$(RM) $(NAME)
-
-re		:	fclean all
-
-.PHONY	:	all clean fclean re
+all: $(NAME) 
+$(NAME):$(OBJ)
+		@echo "\033[2;36m"
+		@$(CC) $(CFLAGS) $(OBJ) $(LIB) $(FRAM) -o $(NAME)
+		@echo "wolf3d_3D: executable file is ready"
+		@echo "\033[0m"
+clean:
+		@echo "\033[2;32m"
+		@rm -rf $(OBJ)   2> /dev/null || true
+		@echo "wolf3d_3D: all resources deleted"
+		@echo "\033[0m"
+fclean: clean 
+		@echo "\033[2;34m"
+		@rm -f $(NAME)  2> /dev/null || true
+		@echo "wolf3d_3D: executable file deleted"
+		@echo "\033[0m"
+		
+re: fclean all
