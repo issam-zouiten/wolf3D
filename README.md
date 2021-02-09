@@ -37,7 +37,6 @@ make re: It's rules - make fclean & make in one.
 [left | right]: Rotate left | right.
 [ESC]: Close Wolf3D.
 
-
 #ScreenShoot
 
 <img width="1275" alt="Screen Shot 2021-02-09 at 9 24 56 AM" src="https://user-images.githubusercontent.com/36717755/107337572-d7af8e00-6aba-11eb-8dc8-efed31ffed1b.png">
